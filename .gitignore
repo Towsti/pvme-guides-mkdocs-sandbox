@@ -7,3 +7,9 @@ __pycache__
 
 # google docs api
 credentials.json
+
+# tox
+.tox
+
+# mkdocs
+site
