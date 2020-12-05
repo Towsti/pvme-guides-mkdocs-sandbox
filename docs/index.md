@@ -1,4 +1,4 @@
-Welcome to the PVME-guides documentation!
+Welcome to the PVME Guides documentation!
 
 ## Navigation tips
 * ++f++ , ++s++ , ++slash++ : open search dialog
