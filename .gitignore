@@ -1,0 +1,9 @@
+# PyCharm
+.idea
+
+# Python
+*.pyc
+__pycache__
+
+# google docs api
+credentials.json

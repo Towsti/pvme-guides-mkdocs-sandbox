@@ -1,0 +1,17 @@
+.emoji {
+    width: 1.375em;
+    height: 1.375em;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.media {
+    max-width: 560px !important;
+    /*height: auto !important;*/
+}
+
+
+.md-grid {
+  /* max-width: initial; */
+  max-width: 96%;
+}

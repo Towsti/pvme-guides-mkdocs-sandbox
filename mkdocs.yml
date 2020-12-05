@@ -1,0 +1,41 @@
+site_name: PVME-Guides
+# site_url: https://example.com/foo/
+
+# repo_url: https://github.com/Towsti/pvme-guides-mkdocs-sandbox
+# repo_name: Towsti/pvme-guides-mkdocs-sandbox
+
+nav:
+  - 'index.md'
+
+theme:
+  name: material
+  favicon: logo.ico
+  features:
+    - navigation.instant
+  palette:
+    scheme: slate
+
+#extra:
+#  social:
+#    - icon: fontawesome/brands/discord
+#      link: discord.gg/pvme
+#      name: PVM Encyclopedia
+
+#plugins:
+#  - git-revision-date
+#  - git-revision-date-localized
+
+markdown_extensions:
+#  - toc:
+#      permalink: true # show permanent link when hovering over characters
+#  - sane_lists
+  - pymdownx.keys
+  - pymdownx.betterem:
+      smart_enable: all
+
+extra_css:
+  - stylesheets/extra.css
+
+
+
+
