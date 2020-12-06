@@ -13,6 +13,7 @@ credentials.json
 
 # mkdocs
 site
+docs/pvme-guides
 
 # pvme-guides repo
 pvme-guides
