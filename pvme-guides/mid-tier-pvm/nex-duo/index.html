@@ -1,0 +1,1415 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../assets/logo.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.6">
+    
+    
+      
+        <title>Nex duo - PVME Guides</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6910b76c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.196e0c26.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="PVME Guides" class="md-header-nav__button md-logo" aria-label="PVME Guides">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            PVME Guides
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Nex duo
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="PVME Guides" class="md-nav__button md-logo" aria-label="PVME Guides">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    PVME Guides
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+    <label class="md-nav__link" for="nav-2">
+      Information
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Information" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Information
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../information/contribution-quick-start/" class="md-nav__link">
+      Contribution quick start
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../information/mastery-system-reqs/" class="md-nav__link">
+      Mastery system reqs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+    <label class="md-nav__link" for="nav-3">
+      Getting started
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Getting started" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/bossing-path/" class="md-nav__link">
+      Bossing path
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/interface-guide/" class="md-nav__link">
+      Interface guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/perk-info/" class="md-nav__link">
+      Perk info
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/perks/" class="md-nav__link">
+      Perks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/quick-start/" class="md-nav__link">
+      Quick start
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/revo-to-full-manual/" class="md-nav__link">
+      Revo to full manual
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+    <label class="md-nav__link" for="nav-4">
+      Upgrading info
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Upgrading info" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Upgrading info
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../upgrading-info/abilities/" class="md-nav__link">
+      Abilities
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../upgrading-info/armour-and-weapons/" class="md-nav__link">
+      Armour and weapons
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../upgrading-info/consumables/" class="md-nav__link">
+      Consumables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../upgrading-info/permanent-unlocks/" class="md-nav__link">
+      Permanent unlocks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../upgrading-info/upgrade-order/" class="md-nav__link">
+      Upgrade order
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    <label class="md-nav__link" for="nav-5">
+      Miscellaneous information
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Miscellaneous information" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Miscellaneous information
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../miscellaneous-information/ability-information/" class="md-nav__link">
+      Ability information
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../miscellaneous-information/mechanics/" class="md-nav__link">
+      Mechanics
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+    <label class="md-nav__link" for="nav-6">
+      Dpm advice
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Dpm advice" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Dpm advice
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dpm-advice/dpm-advice-faq/" class="md-nav__link">
+      Dpm advice faq
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dpm-advice/dpm-advice-mage/" class="md-nav__link">
+      Dpm advice mage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dpm-advice/dpm-advice-melee/" class="md-nav__link">
+      Dpm advice melee
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dpm-advice/dpm-advice-range/" class="md-nav__link">
+      Dpm advice range
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
+    <label class="md-nav__link" for="nav-7">
+      Low tier pvm
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Low tier pvm" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Low tier pvm
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../low-tier-pvm/barrows/" class="md-nav__link">
+      Barrows
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../low-tier-pvm/chaos-elemental/" class="md-nav__link">
+      Chaos elemental
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../low-tier-pvm/dagannoth-kings/" class="md-nav__link">
+      Dagannoth kings
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../low-tier-pvm/giant-mole/" class="md-nav__link">
+      Giant mole
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../low-tier-pvm/gwd1/" class="md-nav__link">
+      Gwd1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../low-tier-pvm/kalphite-queen/" class="md-nav__link">
+      Kalphite queen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../low-tier-pvm/king-black-dragon/" class="md-nav__link">
+      King black dragon
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+    <label class="md-nav__link" for="nav-8">
+      Mid tier pvm
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Mid tier pvm" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
+        Mid tier pvm
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../corporeal-beast/" class="md-nav__link">
+      Corporeal beast
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dragonkin-laboratory/" class="md-nav__link">
+      Dragonkin laboratory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../fight-kiln/" class="md-nav__link">
+      Fight kiln
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gregorovic/" class="md-nav__link">
+      Gregorovic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../helwyr/" class="md-nav__link">
+      Helwyr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../kalphite-king/" class="md-nav__link">
+      Kalphite king
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../legiones/" class="md-nav__link">
+      Legiones
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Nex duo
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Nex duo
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presets" class="md-nav__link">
+    Presets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mechanics" class="md-nav__link">
+    Mechanics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#positioning" class="md-nav__link">
+    Positioning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotations" class="md-nav__link">
+    Rotations
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nex-solo/" class="md-nav__link">
+      Nex solo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../queen-black-dragon/" class="md-nav__link">
+      Queen black dragon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../temple-of-aminishi/" class="md-nav__link">
+      Temple of aminishi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../the-shadow-reef/" class="md-nav__link">
+      The shadow reef
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../twin-furies/" class="md-nav__link">
+      Twin furies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vindicta/" class="md-nav__link">
+      Vindicta
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
+    <label class="md-nav__link" for="nav-9">
+      High tier pvm
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="High tier pvm" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon"></span>
+        High tier pvm
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/aod/" class="md-nav__link">
+      Aod
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/araxxor-melee/" class="md-nav__link">
+      Araxxor melee
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/araxxor-range/" class="md-nav__link">
+      Araxxor range
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/beastmaster-durzag/" class="md-nav__link">
+      Beastmaster durzag
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/magister/" class="md-nav__link">
+      Magister
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/raksha/" class="md-nav__link">
+      Raksha
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/rots/" class="md-nav__link">
+      Rots
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/solak-7s/" class="md-nav__link">
+      Solak 7s
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/solak-duo/" class="md-nav__link">
+      Solak duo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/telos-0-999/" class="md-nav__link">
+      Telos 0 999
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/telos-1k-plus-magic/" class="md-nav__link">
+      Telos 1k plus magic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/telos-1k-plus-melee/" class="md-nav__link">
+      Telos 1k plus melee
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/telos-stun-guide/" class="md-nav__link">
+      Telos stun guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/vorago-duo-hm/" class="md-nav__link">
+      Vorago duo hm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/vorago-duo/" class="md-nav__link">
+      Vorago duo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/vorago-hardmode/" class="md-nav__link">
+      Vorago hardmode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/vorago-tips-and-tricks/" class="md-nav__link">
+      Vorago tips and tricks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/vorago-trio-hm/" class="md-nav__link">
+      Vorago trio hm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/vorago/" class="md-nav__link">
+      Vorago
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../high-tier-pvm/yakamaru/" class="md-nav__link">
+      Yakamaru
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presets" class="md-nav__link">
+    Presets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mechanics" class="md-nav__link">
+    Mechanics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#positioning" class="md-nav__link">
+    Positioning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotations" class="md-nav__link">
+    Rotations
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Nex duo</h1>
+                
+                <p><u><strong>Nex Duo</strong></u> (Credit to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#64;&#33;&#51;&#51;&#51;&#52;&#55;&#57;&#48;&#52;&#57;&#54;&#56;&#48;&#54;&#53;&#48;&#50;&#52;&#49;">&#64;&#33;&#51;&#51;&#51;&#52;&#55;&#57;&#48;&#52;&#57;&#54;&#56;&#48;&#54;&#53;&#48;&#50;&#52;&#49;</a> and <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#64;&#33;&#50;&#50;&#50;&#56;&#49;&#57;&#48;&#56;&#57;&#54;&#51;&#51;&#49;&#49;&#54;&#49;&#55;&#49;">&#64;&#33;&#50;&#50;&#50;&#56;&#49;&#57;&#48;&#56;&#57;&#54;&#51;&#51;&#49;&#49;&#54;&#49;&#55;&#49;</a>)</p>
+<p><img class="media" src="https://i.imgur.com/rRJqoMs.png"></p>
+<h2 id="introduction">Introduction</h2>
+<p>Duo Nex is significantly more forgiving than solo, as the DPS check present on blood phase is much less harsh. When Nex spawns for the first time in a custom instance it will be praying against mage for the majority of the kill, this is why range only kills are the meta for fast consistent kills. After every kill you will teleport out of the instance and re-enter in order to force Nex to always be praying mage.</p>
+<p>Nex is a 1x1 NPC and has very strict softcaps, which means that any damage over a certain amount is reduced by X% depending on the phase. During the first four phases, Nex has a soft cap that reduces excess damage above <strong>5,000 by 50%</strong>. For example, a 6,000 damage hit would be reduced to 5,500 damage. On the Zaros phase, the soft cap is changed to reduce excess damage above <strong>2,000 by 75%</strong>. This means a 6,000-damage hit would be reduced to 3,000.</p>
+<p>Nex's mages have a soft cap that reduces excess damage above 1,000 by a random amount between approximately 80% and 100%. Each mage is combat level 111 with 10,000 health, possesses a max hit of around 850, and are weak to bolts. The mages are static and can only be attacked whenever Nex calls their name. An unusual trait they all share is that they are immune to magic attacks. Cruor's attacks always have 100% accuracy and will heal him for 100 damage regardless of the damage he deals, while Glacies' attacks can freeze players if they aren't using Protect/Deflect Magic; keeping the prayer active will result in all of her attacks missing regardless of the player's armour rating.</p>
+<p>It is strongly advised to complete the Ritual of the Mahjarrat quest in order to get access to the Jas boost which gives a 5% damage boost in GWD1 (including Nex). This can be done via Fairy ring code D.K.Q.</p>
+<h2 id="presets">Presets</h2>
+<p><strong><u>Banking Preset</u></strong></p>
+<p>The most important thing is to have a Frozen key + ancient ceremonial for use with your boss portal. A <img class="emoji" alt="luckpotion" src="https://cdn.discordapp.com/emojis/656426717295935500.png?v=1"> works and can be used here. You can speak to Ashuelot Reis in the Nex bank and pay a one time cost of the Frozen key + ancient ceremonial along with 10m gp to be able to access Nex bank without these items.</p>
+<p><img class="media" src="https://i.imgur.com/FbTxmtb.png"></p>
+<p><strong><u>Beginner Preset</u></strong></p>
+<p>A bladed dive switch is used, and some solid food is recommended for panic eating. The shield is used for building at the start, and jellies + guthix rests are used for healing during the fight without losing adrenaline. A reaper necklace is used as accuracy is low at Nex. As you get more experienced it is recommended to start bringing a vuln switch if you do not have an <img class="emoji" alt="ingen" src="https://cdn.discordapp.com/emojis/641339234111848463.png?v=1"></p>
+<ul>
+<li><img class="emoji" alt="spices" src="https://cdn.discordapp.com/emojis/662038182807732255.png?v=1">  Expensive spices</li>
+</ul>
+<p><img class="media" src="https://i.imgur.com/pa3oHd5.png"></p>
+<p><strong><u>Advanced Preset</u></strong></p>
+<p>As a more experienced nexer, bring DW and 2H weapons, and bring less food, replacing it with spices, glove switches, and bolt switches. Ruby bolts will be used throughout the kill until ice phase, after which you should use your own judgement of when to use Hydrix or Onyx. Generally Hydrix will be used on minions, or if you're falling short on adren. A <img class="emoji" alt="DTB" src="https://cdn.discordapp.com/emojis/513190159429271562.png?v=1"> switch can be used anytime you are not using snipe. The death lotus chaps are used as a clear headed switch.</p>
+<ul>
+<li><img class="emoji" alt="eofor" src="https://cdn.discordapp.com/emojis/745279787471470713.png?v=1">  <strong>Essence of Finality</strong> Dark bow spec stored</li>
+</ul>
+<p><img class="media" src="https://i.imgur.com/tIkXQBt.png"></p>
+<h2 id="mechanics">Mechanics</h2>
+<p>Nex has 5 phases; Smoke, Shadow, Blood, Ice, and Zaos. Each phase has 2 special attacks, with the exception of Zaros</p>
+<p><u><strong>Smoke phase:</strong></u></p>
+<p>Virus → 5 auto-attacks → No escape → Five auto-attacks → Repeat</p>
+<ul>
+<li>Don't stand in middle crossways or adjacent to partner </li>
+</ul>
+<p><u><strong>Shadow phase:</strong></u></p>
+<p>Shadow traps (only if the phased before the virus attack) → Darkness → Shadow traps → 4 auto-attacks → Repeats from the second set of shadow traps</p>
+<ul>
+<li>Move from shadows and don’t stand md</li>
+</ul>
+<p><u><strong>Blood phase:</strong></u></p>
+<p>Siphon summon → 3 auto-attacks → Blood sacrifice → 3 auto-attacks → Repeat</p>
+<ul>
+<li>
+<p>Attacks during siphon will heal Nex and sacrifice will heal nex if not phased and in range</p>
+</li>
+<li>
+<p>Any bleeds used during this phase will heal Nex rather than damage her ( <img class="emoji" alt="frag" src="https://cdn.discordapp.com/emojis/535541273755385885.png?v=1"> <img class="emoji" alt="corruptshot" src="https://cdn.discordapp.com/emojis/535541306294796299.png?v=1"> <img class="emoji" alt="deadshot" src="https://cdn.discordapp.com/emojis/535541307666595870.png?v=1"> )</p>
+</li>
+</ul>
+<p><u><strong>Ice phase:</strong></u></p>
+<p>First special attack (based on phase start) → 3 auto-attacks → Second special attack (based on phase start) → 3 auto-attacks → Repeat</p>
+<ul>
+<li>
+<p>If blood phase ended with sacrifice, ice will start with contain</p>
+</li>
+<li>
+<p>If blood phase ended with siphon, ice will start with prison</p>
+</li>
+<li>
+<p>Run from contain and freedom + eat up prison</p>
+</li>
+</ul>
+<p><u><strong>Zaros phase:</strong></u></p>
+<ul>
+<li>
+<p>Upon the start of this phase, Nex activates Turmoil and heals herself for 33,333 (1/6) of her health to boost it up to 73,333.</p>
+</li>
+<li>
+<p>Nex does not have any unique special attacks in this phase and uses only her melee and magic autoattacks</p>
+</li>
+</ul>
+<p>Further details on the mechanics can be found here: <a href="https://runescape.wiki/w/Nex/Strategies#The_phases">https://runescape.wiki/w/Nex/Strategies#The_phases</a></p>
+<h2 id="positioning">Positioning</h2>
+<p>Good positioning is the next best thing to focus on after learning the rotation. This is a simple layout of the path you will follow during the kill. I do not recommend ever surging diagonally across the middle to Umbra as it can mess up the path for duo kills. The only time you will surge is on ice phase, this is explained more below. Since the 1/3 will be using incite, it is their job to lure and position Nex correctly. Do not stand adjacent to each other at the start to reduce virus spread (described below) and the 1/3 must make sure to position themselves between Nex and Cruor on blood phase so 2/4 may flank.</p>
+<p><code>General path during the kill</code> https://i.imgur.com/1mJzYy4.jpg</p>
+<p><u><strong>Ice phase surge/run</strong></u></p>
+<p>After ending blood phase and killing Cruor, Nex will be in either one of 2 places depending if you lured correctly or not. If done correctly Nex will be in the red box as described in the 1st picture and you will run to melee distance of the minion Cruor as shown by the white box (it is important to only run md of minion after it is killed and Nex is phased into ice or it will follow you and the 2nd scenario will occur). Standing in this white box will cause Nex to walk the fragmentation shot bleed. From here you will end ice phase with a tendril(auto) + snap most of the time, if not just use a basic. You will then immediately surge towards the 4th minion Glacies (angle your camera so that you can click Glacies as soon as you reach him). If for any reason Nex comes into the red box as described in the 2nd picture, then you will carry out the ice phase rotation while running towards glacies as this will most likely kite Nex and dodge contain.</p>
+<p><code>Ice surge</code> https://i.imgur.com/pcrHhwf.jpg</p>
+<p><code>Ice run</code> https://i.imgur.com/ho1EVDX.png</p>
+<p><u><strong>Starting position</strong></u></p>
+<p>The pink square is where the 1/3 will stand in the start of the kill</p>
+<p>The blue square is where the 2/4 will stand in the start of the kill, they will also <img class="emoji" alt="vulnbomb" src="https://cdn.discordapp.com/emojis/655341074235129858.png?v=1"> from here</p>
+<p>You will stand in these spots until either smoke phase ends or Nex moves towards you, after which you will go to the yellow squares to attack the minion (fumus). You don't want to be standing adjacent to each other incase one of you gets virus.</p>
+<p><img class="media" src="https://i.imgur.com/SZEwb5k.jpg"></p>
+<h2 id="rotations">Rotations</h2>
+<p><u><strong>Non ECB/Casual rotation</strong></u></p>
+<p><strong>Note:</strong> If you are using dual wield instead of a two handed weapon, replace Dazing shot with Needle strike. As 1/3 you should use Incite. If you are stalling adrenaline after each kill you can save your apot for Zaros phase.</p>
+<p><strong><u>Pre-Fight</u></strong></p>
+<ul>
+<li><img class="emoji" alt="jas" src="https://cdn.discordapp.com/emojis/662032366667300875.png?v=1"> <strong>Make sure to use jas boost</strong></li>
+</ul>
+<p>Target Fumus ASAP and start building adrenaline with defensives. Freedom should be first, and Anticipate should be last. Spam click the minion as sometimes when you escape, you won't get adrenaline from anticipate if you don't keep clicking the minion before escape.</p>
+<p><u><strong>Smoke phase</strong></u></p>
+<p><img class="emoji" alt="shadowtend" src="https://cdn.discordapp.com/emojis/642713547142332416.png?v=1"> → <img class="emoji" alt="snap" src="https://cdn.discordapp.com/emojis/535534127131394088.png?v=1"> → <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"></p>
+<p><strong>Fumus</strong></p>
+<p><code>1/3</code> <img class="emoji" alt="rapid" src="https://cdn.discordapp.com/emojis/535541270521708566.png?v=1"> </p>
+<p><code>2/4</code> <img class="emoji" alt="corruptshot" src="https://cdn.discordapp.com/emojis/535541306294796299.png?v=1"> → <img class="emoji" alt="needle" src="https://cdn.discordapp.com/emojis/535541259108876293.png?v=1"></p>
+<p><u><strong>Shadow phase</strong></u></p>
+<p><code>1/3</code> Tag with <img class="emoji" alt="frag" src="https://cdn.discordapp.com/emojis/535541273755385885.png?v=1"> → Auto + <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"> → <img class="emoji" alt="snipe" src="https://cdn.discordapp.com/emojis/535541258425204770.png?v=1"> → <img class="emoji" alt="stw" src="https://cdn.discordapp.com/emojis/535541259109138463.png?v=1"> ( <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"> or <img class="emoji" alt="rout" src="https://cdn.discordapp.com/emojis/535541259268521994.png?v=1"> if needed)</p>
+<p><code>2/4</code> Tag with <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"> → Auto + <img class="emoji" alt="snipe" src="https://cdn.discordapp.com/emojis/535541258425204770.png?v=1"> → <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"> → <img class="emoji" alt="stw" src="https://cdn.discordapp.com/emojis/535541259109138463.png?v=1"> ( <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"> or <img class="emoji" alt="rout" src="https://cdn.discordapp.com/emojis/535541259268521994.png?v=1"> if needed)</p>
+<p><strong>Umbra</strong></p>
+<p><code>1/3</code> <img class="emoji" alt="corruptshot" src="https://cdn.discordapp.com/emojis/535541306294796299.png?v=1"> → <img class="emoji" alt="needle" src="https://cdn.discordapp.com/emojis/535541259108876293.png?v=1"></p>
+<p><code>2/4</code> <img class="emoji" alt="rapid" src="https://cdn.discordapp.com/emojis/535541270521708566.png?v=1"></p>
+<p><u><strong>Blood phase</strong></u></p>
+<p>Tag with <img class="emoji" alt="snap" src="https://cdn.discordapp.com/emojis/535534127131394088.png?v=1"> → <img class="emoji" alt="Vuln" src="https://cdn.discordapp.com/emojis/537349530551582720.png?v=1"> → <img class="emoji" alt="snipe" src="https://cdn.discordapp.com/emojis/535541258425204770.png?v=1"> → <img class="emoji" alt="bombard" src="https://cdn.discordapp.com/emojis/535541306391265284.png?v=1"> → <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"></p>
+<p><strong>Cruor</strong></p>
+<p><code>1/3</code> <img class="emoji" alt="rapid" src="https://cdn.discordapp.com/emojis/535541270521708566.png?v=1"> </p>
+<p><code>2/4</code> <img class="emoji" alt="corruptshot" src="https://cdn.discordapp.com/emojis/535541306294796299.png?v=1"> → <img class="emoji" alt="needle" src="https://cdn.discordapp.com/emojis/535541259108876293.png?v=1"></p>
+<p><u><strong>Ice phase</strong></u></p>
+<p><code>1/3</code> Tag with <img class="emoji" alt="frag" src="https://cdn.discordapp.com/emojis/535541273755385885.png?v=1"> → <img class="emoji" alt="shadowtend" src="https://cdn.discordapp.com/emojis/642713547142332416.png?v=1"> → <img class="emoji" alt="snap" src="https://cdn.discordapp.com/emojis/535534127131394088.png?v=1"> → <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"></p>
+<p><code>2/4</code> Tag with <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"> → <img class="emoji" alt="shadowtend" src="https://cdn.discordapp.com/emojis/642713547142332416.png?v=1"> → <img class="emoji" alt="snap" src="https://cdn.discordapp.com/emojis/535534127131394088.png?v=1"> → <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"></p>
+<p><strong>Glacies</strong></p>
+<p><code>1/3</code> <img class="emoji" alt="corruptshot" src="https://cdn.discordapp.com/emojis/535541306294796299.png?v=1"> → <img class="emoji" alt="needle" src="https://cdn.discordapp.com/emojis/535541259108876293.png?v=1"></p>
+<p><code>2/4</code> <img class="emoji" alt="rapid" src="https://cdn.discordapp.com/emojis/535541270521708566.png?v=1"></p>
+<p><u><strong>Zaros phase</strong></u></p>
+<p><code>1/3</code> Tag with <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"> → <img class="emoji" alt="deadshot" src="https://cdn.discordapp.com/emojis/535541307666595870.png?v=1"> → <img class="emoji" alt="frag" src="https://cdn.discordapp.com/emojis/535541273755385885.png?v=1"> → <img class="emoji" alt="limitless" src="https://cdn.discordapp.com/emojis/641339233638023179.png?v=1"> → <img class="emoji" alt="rapid" src="https://cdn.discordapp.com/emojis/535541270521708566.png?v=1"></p>
+<p><code>2/4</code> Tag with <img class="emoji" alt="corruptshot" src="https://cdn.discordapp.com/emojis/535541306294796299.png?v=1"> → <img class="emoji" alt="onsl" src="https://cdn.discordapp.com/emojis/513190159085207555.png?v=1"></p>
+<p><u><strong>ECB/Advanced rotation</strong></u></p>
+<p><strong><u>Pre-Fight</u></strong></p>
+<ul>
+<li><img class="emoji" alt="jas" src="https://cdn.discordapp.com/emojis/662032366667300875.png?v=1"> <strong>Make sure to use jas boost</strong></li>
+</ul>
+<p><img class="emoji" alt="dummy" src="https://cdn.discordapp.com/emojis/656844963522281473.png?v=1"> → Build adren if needed → <img class="emoji" alt="needle" src="https://cdn.discordapp.com/emojis/535541259108876293.png?v=1"> → <img class="emoji" alt="ecb" src="https://cdn.discordapp.com/emojis/615618531937222657.png?v=1"> <img class="emoji" alt="spec" src="https://cdn.discordapp.com/emojis/537340400273195028.png?v=1"> → <img class="emoji" alt="anti" src="https://cdn.discordapp.com/emojis/535541306475151390.png?v=1"></p>
+<p><u><strong>Smoke phase</strong></u></p>
+<p><code>1/3</code> <img class="emoji" alt="shadowtend" src="https://cdn.discordapp.com/emojis/642713547142332416.png?v=1"> → <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"></p>
+<p><code>2/4</code> Auto + <img class="emoji" alt="dbow" src="https://cdn.discordapp.com/emojis/643848618553507843.png?v=1"> <img class="emoji" alt="eofspec" src="https://cdn.discordapp.com/emojis/746403211908481184.png?v=1"> → <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"></p>
+<p><strong>Fumus</strong></p>
+<p><code>1/3</code> <img class="emoji" alt="rapid" src="https://cdn.discordapp.com/emojis/535541270521708566.png?v=1"> </p>
+<p><code>2/4</code> <img class="emoji" alt="frag" src="https://cdn.discordapp.com/emojis/535541273755385885.png?v=1"> → <img class="emoji" alt="ecb" src="https://cdn.discordapp.com/emojis/615618531937222657.png?v=1"> <img class="emoji" alt="spec" src="https://cdn.discordapp.com/emojis/537340400273195028.png?v=1"></p>
+<p><u><strong>Shadow phase</strong></u></p>
+<p><code>1/3</code> Tag with <img class="emoji" alt="frag" src="https://cdn.discordapp.com/emojis/535541273755385885.png?v=1"> → <img class="emoji" alt="ecb" src="https://cdn.discordapp.com/emojis/615618531937222657.png?v=1"> <img class="emoji" alt="spec" src="https://cdn.discordapp.com/emojis/537340400273195028.png?v=1"> + Auto → <img class="emoji" alt="snap" src="https://cdn.discordapp.com/emojis/535534127131394088.png?v=1"> (<img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"> if needed)</p>
+<p><code>2/4</code> Tag with <img class="emoji" alt="corruptshot" src="https://cdn.discordapp.com/emojis/535541306294796299.png?v=1"> → Auto + <img class="emoji" alt="snipe" src="https://cdn.discordapp.com/emojis/535541258425204770.png?v=1"> → <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"> (<img class="emoji" alt="Tuskas" src="https://cdn.discordapp.com/emojis/513201065513058306.png?v=1">  if needed)</p>
+<p><strong>Umbra</strong></p>
+<p><code>1/3</code> <img class="emoji" alt="corruptshot" src="https://cdn.discordapp.com/emojis/535541306294796299.png?v=1"></p>
+<p><code>2/4</code> <img class="emoji" alt="rapid" src="https://cdn.discordapp.com/emojis/535541270521708566.png?v=1"></p>
+<p><u><strong>Blood phase</strong></u></p>
+<p><code>1/3</code> Tag with <img class="emoji" alt="dbow" src="https://cdn.discordapp.com/emojis/643848618553507843.png?v=1"> <img class="emoji" alt="eofspec" src="https://cdn.discordapp.com/emojis/746403211908481184.png?v=1"> → <img class="emoji" alt="freedom" src="https://cdn.discordapp.com/emojis/535541258240786434.png?v=1"> + <img class="emoji" alt="vulnbomb" src="https://cdn.discordapp.com/emojis/655341074235129858.png?v=1"> → Any defensive for adren → <img class="emoji" alt="snipe" src="https://cdn.discordapp.com/emojis/535541258425204770.png?v=1"> → <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"></p>
+<p><code>2/4</code> Tag with <img class="emoji" alt="snap" src="https://cdn.discordapp.com/emojis/535534127131394088.png?v=1"> → <img class="emoji" alt="freedom" src="https://cdn.discordapp.com/emojis/535541258240786434.png?v=1"> → <img class="emoji" alt="ecb" src="https://cdn.discordapp.com/emojis/615618531937222657.png?v=1"> <img class="emoji" alt="spec" src="https://cdn.discordapp.com/emojis/537340400273195028.png?v=1"> → <img class="emoji" alt="snipe" src="https://cdn.discordapp.com/emojis/535541258425204770.png?v=1"> → <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"></p>
+<p><strong>Cruor</strong></p>
+<p><code>1/3</code> <img class="emoji" alt="dommine" src="https://cdn.discordapp.com/emojis/662249620579155968.png?v=1"> → <img class="emoji" alt="ecb" src="https://cdn.discordapp.com/emojis/615618531937222657.png?v=1"> <img class="emoji" alt="spec" src="https://cdn.discordapp.com/emojis/537340400273195028.png?v=1"> → <img class="emoji" alt="ricochet" src="https://cdn.discordapp.com/emojis/535541259566186521.png?v=1"></p>
+<p><code>2/4</code> <img class="emoji" alt="dommine" src="https://cdn.discordapp.com/emojis/662249620579155968.png?v=1"> → <img class="emoji" alt="corruptshot" src="https://cdn.discordapp.com/emojis/535541306294796299.png?v=1"> → <img class="emoji" alt="ecb" src="https://cdn.discordapp.com/emojis/615618531937222657.png?v=1"> <img class="emoji" alt="spec" src="https://cdn.discordapp.com/emojis/537340400273195028.png?v=1"></p>
+<p><strong>Note:</strong> You want to place mines at the last tick of snipe or they will be wasted due to the delay on popping</p>
+<p><u><strong>Ice phase</strong></u></p>
+<p><code>1/3</code> <img class="emoji" alt="anti" src="https://cdn.discordapp.com/emojis/535541306475151390.png?v=1"> during phase transition → Auto + <img class="emoji" alt="snap" src="https://cdn.discordapp.com/emojis/535534127131394088.png?v=1"> → <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"> </p>
+<p><code>2/4</code> <img class="emoji" alt="anti" src="https://cdn.discordapp.com/emojis/535541306475151390.png?v=1"> during phase transition → <img class="emoji" alt="shadowtend" src="https://cdn.discordapp.com/emojis/642713547142332416.png?v=1"> → <img class="emoji" alt="mds" src="https://cdn.discordapp.com/emojis/535541259033378827.png?v=1"> </p>
+<p><strong>Glacies</strong></p>
+<p><code>1/3</code> <img class="emoji" alt="corruptshot" src="https://cdn.discordapp.com/emojis/535541306294796299.png?v=1"> → <img class="emoji" alt="ecb" src="https://cdn.discordapp.com/emojis/615618531937222657.png?v=1"> <img class="emoji" alt="spec" src="https://cdn.discordapp.com/emojis/537340400273195028.png?v=1"> (<img class="emoji" alt="Tuskas" src="https://cdn.discordapp.com/emojis/513201065513058306.png?v=1">  if needed)</p>
+<p><code>2/4</code> <img class="emoji" alt="frag" src="https://cdn.discordapp.com/emojis/535541273755385885.png?v=1"> → <img class="emoji" alt="ecb" src="https://cdn.discordapp.com/emojis/615618531937222657.png?v=1"> <img class="emoji" alt="spec" src="https://cdn.discordapp.com/emojis/537340400273195028.png?v=1"> (<img class="emoji" alt="ricochet" src="https://cdn.discordapp.com/emojis/535541259566186521.png?v=1">  if needed)</p>
+<p><u><strong>Zaros phase</strong></u></p>
+<p><code>1/3</code> Tag with <img class="emoji" alt="frag" src="https://cdn.discordapp.com/emojis/535541273755385885.png?v=1"> → <img class="emoji" alt="dbow" src="https://cdn.discordapp.com/emojis/643848618553507843.png?v=1"> <img class="emoji" alt="eofspec" src="https://cdn.discordapp.com/emojis/746403211908481184.png?v=1"> → <img class="emoji" alt="limitless" src="https://cdn.discordapp.com/emojis/641339233638023179.png?v=1"> <img class="emoji" alt="rapid" src="https://cdn.discordapp.com/emojis/535541270521708566.png?v=1">  → <img class="emoji" alt="Tuskas" src="https://cdn.discordapp.com/emojis/513201065513058306.png?v=1"> / <img class="emoji" alt="rout" src="https://cdn.discordapp.com/emojis/535541259268521994.png?v=1"> if needed</p>
+<p><code>2/4</code> Tag with <img class="emoji" alt="corruptshot" src="https://cdn.discordapp.com/emojis/535541306294796299.png?v=1"> → <img class="emoji" alt="dbow" src="https://cdn.discordapp.com/emojis/643848618553507843.png?v=1"> <img class="emoji" alt="eofspec" src="https://cdn.discordapp.com/emojis/746403211908481184.png?v=1"> → <img class="emoji" alt="limitless" src="https://cdn.discordapp.com/emojis/641339233638023179.png?v=1"> <img class="emoji" alt="rapid" src="https://cdn.discordapp.com/emojis/535541270521708566.png?v=1"> → <img class="emoji" alt="Tuskas" src="https://cdn.discordapp.com/emojis/513201065513058306.png?v=1"> / <img class="emoji" alt="rout" src="https://cdn.discordapp.com/emojis/535541259268521994.png?v=1"> if needed</p>
+<p>Camp <img class="emoji" alt="RubyBakri" src="https://cdn.discordapp.com/emojis/565726489413287956.png?v=1">, <img class="emoji" alt="HydrixBakri" src="https://cdn.discordapp.com/emojis/550834403136503822.png?v=1"> on minions and after blood, <img class="emoji" alt="OnyxBakri" src="https://cdn.discordapp.com/emojis/565726489362956308.png?v=1"> Zaros</p>
+<p><u><strong>Video Examples</strong></u></p>
+<p>Casual rotation (Some tactics in these videos are a bit outdated, however the general path and idea is still a good reference)</p>
+<p><code>1/3</code> <a href="https://youtu.be/ifiYdbm73rI">https://youtu.be/ifiYdbm73rI</a></p>
+<p><code>2/4</code> <a href="https://youtu.be/RiaRV3MfG_E">https://youtu.be/RiaRV3MfG_E</a></p>
+<p>Advanced rotation (<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#64;&#33;&#51;&#56;&#53;&#57;&#54;&#56;&#56;&#55;&#55;&#56;&#50;&#51;&#51;&#50;&#56;&#50;&#55;&#54;">&#64;&#33;&#51;&#56;&#53;&#57;&#54;&#56;&#56;&#55;&#55;&#56;&#50;&#51;&#51;&#50;&#56;&#50;&#55;&#54;</a> and <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#64;&#33;&#50;&#51;&#53;&#55;&#50;&#57;&#50;&#48;&#53;&#57;&#56;&#50;&#49;&#51;&#52;&#50;&#56;&#50;">&#64;&#33;&#50;&#51;&#53;&#55;&#50;&#57;&#50;&#48;&#53;&#57;&#56;&#50;&#49;&#51;&#52;&#50;&#56;&#50;</a>)</p>
+<p><code>1/3</code> <a href="https://youtu.be/76x_NobujNQ">https://youtu.be/76x_NobujNQ</a></p>
+<p><code>2/4</code> <a href="https://youtu.be/htDi9dnqKVQ">https://youtu.be/htDi9dnqKVQ</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <footer></footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.fd16492e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7836ba4d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.instant'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../../js/extra.js"></script>
+      
+    
+  </body>
+</html>
