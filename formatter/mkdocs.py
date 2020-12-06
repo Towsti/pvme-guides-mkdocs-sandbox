@@ -46,9 +46,10 @@ class MKDocsMessage(object):
             formatter.format_mkdocs_md(self)
 
     def __str__(self):
+        # todo: remove temporary fix of adding 3 new lines
         bot_command_spacing = '\n' if self.bot_command != '' else ''
         return '{}\n{}{}{}\n'.format(
-            '\n\n'.join(self.content.splitlines()),
+            '\n\n\n'.join(self.content.splitlines()),
             '\n'.join(self.embeds),
             bot_command_spacing,
             self.bot_command)
