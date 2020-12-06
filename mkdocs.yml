@@ -28,8 +28,8 @@ markdown_extensions:
 #      permalink: true # show permanent link when hovering over characters
 #  - sane_lists
 - pymdownx.keys
-- pymdownx.betterem:
-    smart_enable: all
+#- pymdownx.betterem:
+#    smart_enable: all
 
 extra_css:
 - css/extra.css
