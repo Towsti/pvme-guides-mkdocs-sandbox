@@ -197,18 +197,23 @@ class CodeBlock(MKDocs):
 
 
 class PVMESpreadSheet(MKDocs):
-    # $data_pvme:Perks!H11$
+    """Format "$data_pvme:Perks!H11$" to the price from the pvme-guides spreadsheet."""
     PATTERN = re.compile(r"\$data_pvme:([^!]+)!([^$]+)\$")
 
     @staticmethod
     @lru_cache(maxsize=None)
     def obtain_pvme_spreadsheet_data(worksheet):
+        try:
+            gc = gspread.service_account(filename=CREDENTIALS_FILE)
+            sh = gc.open_by_url(PVME_SPREADSHEET)
 
-        gc = gspread.service_account(filename=CREDENTIALS_FILE)
-        sh = gc.open_by_url(PVME_SPREADSHEET)
-
-        worksheet = sh.worksheet(worksheet)
-        return worksheet.get_all_values()
+            worksheet = sh.worksheet(worksheet)
+        except FileNotFoundError as e:
+            print(e)
+        except Exception as e:
+            print(e)
+        else:
+            return worksheet.get_all_values()
 
     @staticmethod
     def format_mkdocs_md(message):
@@ -216,5 +221,9 @@ class PVMESpreadSheet(MKDocs):
         for match in reversed(matches):
             worksheet_data = PVMESpreadSheet.obtain_pvme_spreadsheet_data(match.group(1))
             row, column = a1_to_rowcol(match.group(2))
-            price_formatted = "{}".format(worksheet_data[row-1][column-1])
+            if worksheet_data:
+                price_formatted = "{}".format(worksheet_data[row-1][column-1])
+            else:
+                price_formatted = "N/A"
+
             message.content = message.content[:match.start()] + price_formatted + message.content[match.end():]
