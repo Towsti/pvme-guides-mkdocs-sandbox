@@ -3,7 +3,7 @@ import shutil
 
 import ruamel.yaml
 
-from formatter.rules import PVMEBotCommand, Section, Emoji, DiscordMarkdownHTML, EmbedLink, ListSection, LineBreak, Cleanup
+from formatter.rules import *
 
 CATEGORY_SEQUENCE = [
     'information',
@@ -19,13 +19,12 @@ CATEGORY_SEQUENCE = [
 DEFAULT_FORMAT_SEQUENCE = [
     Section,
     LineBreak,
-    Cleanup,
     Emoji,
     DiscordMarkdownHTML,
     EmbedLink,
-    # ListSection,
-
-    # Cleanup
+    DiscordWhiteSpace,
+    CodeBlock,
+    PVMESpreadSheet
 ]
 
 
@@ -52,7 +51,7 @@ class MKDocsMessage(object):
         # todo: remove temporary fix of adding 3 new lines
         bot_command_spacing = '\n' if self.bot_command != '' else ''
         return '{}\n{}{}{}\n'.format(
-            '\n\n\n'.join(self.content.splitlines()),
+            '\n\n'.join(self.content.splitlines()),
             '\n'.join(self.embeds),
             bot_command_spacing,
             self.bot_command)
@@ -69,6 +68,8 @@ def generate_channel_source(channel_txt_file, source_dir, category_name, channel
         if line.startswith('.'):
             messages.append(MKDocsMessage.init_raw_message("\n".join(message_lines), line))
             message_lines = list()
+        elif line.startswith('> ') and 'table of contents' in line.lower():
+            break
         else:
             message_lines.append(line)
 
@@ -132,8 +133,6 @@ def generate_sources(pvme_guides_dir: str, source_dir: str, mkdocs_yml: str) -> 
             if ext != '.txt':
                 continue
 
-            # with open('{}/pvme-guides/{}/{}.md'.format(source_dir, category_name, channel_name), 'w') as file:
-            #     file.write('hello')
             generate_channel_source(channel_dir, source_dir, category_name, channel_name)
 
             category_channels.append('pvme-guides/{}/{}.md'.format(category_name, channel_name))

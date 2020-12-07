@@ -1,5 +1,18 @@
 import re
 from abc import ABC, abstractmethod
+from functools import lru_cache
+import pathlib
+
+import gspread
+from gspread.utils import a1_to_rowcol
+
+
+# set the credentials.json file path, by default, the file is searched in the pvme_docs_generator/ folder
+module_path = pathlib.Path(__file__).parent.absolute()
+CREDENTIALS_FILE = "{}/credentials.json".format(module_path)
+
+# set the PVME price spreadsheet link (full link)
+PVME_SPREADSHEET = "https://docs.google.com/spreadsheets/d/1nFepmgXBFh1Juc0Qh5nd1HLk50iiFTt3DHapILozuIM/edit#gid=0"
 
 
 class Sphinx(ABC):
@@ -44,17 +57,19 @@ class Section(MKDocs):
 
     @staticmethod
     def format_mkdocs_md(message):
+        # todo: remove sections ending with section:
+        # todo: move TOC removal to message builder
         matches = [match for match in re.finditer(Section.PATTERN, message.content)]
 
         for match in reversed(matches):
             section_name = re.sub(r"[*_]*", '', match.group(1))
             section_name_formatted = "##{}".format(section_name)
 
-            if section_name.lower() == "table of contents":
-                message.content = message.content[:match.start()]
+            # remove ':' at the end of a section name to keep ry happy
+            if section_name_formatted.endswith(':'):
+                section_name_formatted = section_name_formatted[:-1]
 
-            else:
-                message.content = message.content[:match.start()] + section_name_formatted + message.content[match.end():]
+            message.content = message.content[:match.start()] + section_name_formatted + message.content[match.end():]
 
 
 class Emoji(MKDocs):
@@ -67,7 +82,7 @@ class Emoji(MKDocs):
         for pattern, extension in Emoji.PATTERNS:
             matches = [match for match in re.finditer(pattern, message.content)]
             for match in reversed(matches):
-                emoji_formatted = "<img class=\"emoji\" alt=\"{}\" src=\"https://cdn.discordapp.com/emojis/{}{}?v=1\">".format(match.group(1), match.group(2), extension)
+                emoji_formatted = "<img title=\"{}\" class=\"emoji\" alt=\"{}\" src=\"https://cdn.discordapp.com/emojis/{}{}?v=1\">".format(match.group(1), match.group(1), match.group(2), extension)
                 message.content = message.content[:match.start()] + emoji_formatted + message.content[match.end():]
 
 
@@ -146,32 +161,6 @@ class EmbedLink(MKDocs):
                 message.embeds.append(html_embed)
 
 
-class ListSection(MKDocs):
-    WEIRDCHAMP_PATTERN = re.compile(r"︎")
-    PATTERN = re.compile(r"([⬥•▪])")
-
-    @staticmethod
-    def format_mkdocs_md(message):
-        message.content = re.sub(ListSection.WEIRDCHAMP_PATTERN, ' ', message.content)
-        # message.content = re.sub(ListSection.PATTERN, '*', message.content)
-        lines = message.content.splitlines()
-        for index, line in enumerate(lines):
-            # print(re.findall(r"(\s*[⬥•▪])", line))
-            matches = [match for match in re.finditer(r"^(\s*[-⬥•▪])", line)]
-            for match in matches:
-                formatted = match.group(1).replace(' ', '‏‏‎ ‎', -1)
-                lines[index] = line[:match.start()] + formatted + line[match.end():]
-
-        message.content = '\n'.join(lines)
-
-        # print("============")
-        # lines = message.content.splitlines()
-        # for line in lines:
-        #     matches = [match for match in re.finditer(ListSection.PATTERN, line)]
-        #     for match in reversed(matches):
-        #         # message.content = message.content[:match.start()] + "\\{}".format(match.group(1)) + message.content[match.end():]
-        #         print(match.start())
-
 class LineBreak(MKDocs):
     PATTERN = re.compile(r"_ _")
 
@@ -180,8 +169,52 @@ class LineBreak(MKDocs):
         message.content = re.sub(LineBreak.PATTERN, '', message.content)
 
 
-class Cleanup(MKDocs):
+class DiscordWhiteSpace(MKDocs):
+    """Converts whitespace and tabs that would normally be converted to a single space in html/markdown
+    to a special "empty" character. For now this is used over <pre> </pre> and &nbsp; due to inline code blocks
+
+    todo: use &nbsp; instead of the weirdchamp "empty" character, this requires detecting code blocks
+    """
+    @staticmethod
+    def format_mkdocs_md(message):
+        message.content = re.sub(r"\t", '    ‎', message.content)
+
+        matches = [match for match in re.finditer(r"( {2,})", message.content)]
+        for match in reversed(matches):
+            line_spaces = ' ‎' * len(match.group(1))
+            message.content = message.content[:match.start()] + line_spaces + message.content[match.end():]
+
+        message.content = re.sub(r"^ ", ' ‎', message.content)
+
+
+class CodeBlock(MKDocs):
+    # todo: current approach adds enter to start and end of block, consider improving this
+    PATTERN = re.compile(r"```")
 
     @staticmethod
     def format_mkdocs_md(message):
-        message.content = message.content.replace(' ', '‏‏‎ ‎', -1)
+        message.content = re.sub(CodeBlock.PATTERN, '\n```\n', message.content)
+
+
+class PVMESpreadSheet(MKDocs):
+    # $data_pvme:Perks!H11$
+    PATTERN = re.compile(r"\$data_pvme:([^!]+)!([^$]+)\$")
+
+    @staticmethod
+    @lru_cache(maxsize=None)
+    def obtain_pvme_spreadsheet_data(worksheet):
+
+        gc = gspread.service_account(filename=CREDENTIALS_FILE)
+        sh = gc.open_by_url(PVME_SPREADSHEET)
+
+        worksheet = sh.worksheet(worksheet)
+        return worksheet.get_all_values()
+
+    @staticmethod
+    def format_mkdocs_md(message):
+        matches = [match for match in re.finditer(PVMESpreadSheet.PATTERN, message.content)]
+        for match in reversed(matches):
+            worksheet_data = PVMESpreadSheet.obtain_pvme_spreadsheet_data(match.group(1))
+            row, column = a1_to_rowcol(match.group(2))
+            price_formatted = "{}".format(worksheet_data[row-1][column-1])
+            message.content = message.content[:match.start()] + price_formatted + message.content[match.end():]
