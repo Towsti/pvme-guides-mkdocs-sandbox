@@ -48,7 +48,7 @@ class PVMEBotCommand(MKDocs):
             # todo: temporary parsing to get a general idea
             link = message.bot_command.split(':')
 
-            message.bot_command = "<img class=\"media\" src=\"{}:{}\">".format(link[1], link[2])
+            message.bot_command = "<img class=\"media\" src=\"{}:{}\">\n".format(link[1], link[2])
 
 
 class Section(MKDocs):
