@@ -48,7 +48,7 @@ class Section(MKDocs):
 
         for match in reversed(matches):
             section_name = re.sub(r"[*_]*", '', match.group(1))
-            section_name_formatted = "## {}".format(section_name)
+            section_name_formatted = "##{}".format(section_name)
 
             if section_name.lower() == "table of contents":
                 message.content = message.content[:match.start()]
@@ -148,13 +148,29 @@ class EmbedLink(MKDocs):
 
 class ListSection(MKDocs):
     WEIRDCHAMP_PATTERN = re.compile(r"︎")
-    PATTERN = re.compile(r"[⬥•▪]")
+    PATTERN = re.compile(r"([⬥•▪])")
 
     @staticmethod
     def format_mkdocs_md(message):
         message.content = re.sub(ListSection.WEIRDCHAMP_PATTERN, ' ', message.content)
-        message.content = re.sub(ListSection.PATTERN, '-', message.content)
+        # message.content = re.sub(ListSection.PATTERN, '*', message.content)
+        lines = message.content.splitlines()
+        for index, line in enumerate(lines):
+            # print(re.findall(r"(\s*[⬥•▪])", line))
+            matches = [match for match in re.finditer(r"^(\s*[-⬥•▪])", line)]
+            for match in matches:
+                formatted = match.group(1).replace(' ', '‏‏‎ ‎', -1)
+                lines[index] = line[:match.start()] + formatted + line[match.end():]
 
+        message.content = '\n'.join(lines)
+
+        # print("============")
+        # lines = message.content.splitlines()
+        # for line in lines:
+        #     matches = [match for match in re.finditer(ListSection.PATTERN, line)]
+        #     for match in reversed(matches):
+        #         # message.content = message.content[:match.start()] + "\\{}".format(match.group(1)) + message.content[match.end():]
+        #         print(match.start())
 
 class LineBreak(MKDocs):
     PATTERN = re.compile(r"_ _")
@@ -162,3 +178,10 @@ class LineBreak(MKDocs):
     @staticmethod
     def format_mkdocs_md(message):
         message.content = re.sub(LineBreak.PATTERN, '', message.content)
+
+
+class Cleanup(MKDocs):
+
+    @staticmethod
+    def format_mkdocs_md(message):
+        message.content = message.content.replace(' ', '‏‏‎ ‎', -1)
