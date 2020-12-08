@@ -2,6 +2,7 @@ import re
 from abc import ABC, abstractmethod
 from functools import lru_cache
 import pathlib
+import requests
 
 import gspread
 from gspread.utils import a1_to_rowcol
@@ -16,7 +17,6 @@ PVME_SPREADSHEET = "https://docs.google.com/spreadsheets/d/1nFepmgXBFh1Juc0Qh5nd
 
 
 class Sphinx(ABC):
-
     @staticmethod
     @abstractmethod
     def format_sphinx_rst(message, doc_info):
@@ -24,7 +24,6 @@ class Sphinx(ABC):
 
 
 class MKDocs(ABC):
-
     @staticmethod
     @abstractmethod
     def format_mkdocs_md(message):
@@ -46,9 +45,8 @@ class PVMEBotCommand(MKDocs):
             message.bot_command = ''
         elif message.bot_command.startswith((".img:", ".file:")):
             # todo: temporary parsing to get a general idea
-            link = message.bot_command.split(':')
-
-            message.bot_command = "<img class=\"media\" src=\"{}:{}\">\n".format(link[1], link[2])
+            link = message.bot_command.split(':', 1)
+            message.bot_command = EmbedLink.generate_embed(link[1])
 
 
 class Section(MKDocs):
@@ -117,46 +115,79 @@ class EmbedLink(MKDocs):
 
     @staticmethod
     def generate_embed(link: str) -> str:
-        """Obtain the html embed link from a raw (unparsed) link
+        """Obtain the html embed link from a raw (unparsed) link.
 
-        :param link: raw unparsed link
-        :return: html formatted embed link or None (link cannot be parsed)
+        :param link: raw unparsed (or pre-parsed from text) link
+        :return: html formatted embed link (<a href="link">link</a> if no embed link is discovered)
         """
-        # todo: clips.twitch and twitch/videos are not formatted correctly
+        # i.imgur (png) note: can be managed in else but about 90% of the links are in this format so it speeds up
+        if re.match(r"https?://i\.imgur\.com/([a-zA-Z0-9]+)\.png", link):
+            embed = "<img class=\"media\" src=\"{}\">".format(link)
+
         # youtu.be
-        match = re.match(r"https?://youtu\.be/([a-zA-Z0-9_\-]+)", link)
-        if match:
-            return "<iframe class=\"media\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/{}\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>".format(
-                match.group(1))
+        elif match := re.match(r"https?://youtu\.be/([a-zA-Z0-9_\-]+)", link):
+            embed = "<iframe class=\"media\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/{}\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>".format(match.group(1))
 
         # youtube.com
-        match = re.match(
-            r"https?://(www\.)?youtube\.[a-z0-9.]*?/watch\?([0-9a-zA-Z$\-_.+!*'(),;/?:@=&#]*&)?v=([a-zA-Z0-9_\-]+)",link)
-        if match:
-            return "<iframe class=\"media\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/{}\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>".format(match.group(3))
+        elif match := re.match(r"https?://(www\.)?youtube\.[a-z0-9.]*?/watch\?([0-9a-zA-Z$\-_.+!*'(),;/?:@=&#]*&)?v=([a-zA-Z0-9_\-]+)", link):
+            embed = "<iframe class=\"media\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/{}\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>".format(match.group(3))
 
         # clips.twitch.tv
-        match = re.match(r"https?://clips\.twitch\.tv/([a-zA-Z]+)", link)
-        if match:
-            return "<iframe class=\"media\" src=\"https://clips.twitch.tv/embed?autoplay=false&clip={}\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\" height=\"315\" width=\"560\"></iframe>".format(match.group(1))
+        elif match := re.match(r"https?://clips\.twitch\.tv/([a-zA-Z]+)", link):
+            # todo: embed not formatted correctly
+            embed = "<iframe class=\"media\" src=\"https://clips.twitch.tv/embed?autoplay=false&clip={}\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\" height=\"315\" width=\"560\"></iframe>".format(match.group(1))
 
         # twitch.tv/videos
-        match = re.match(r"https?://www\.twitch\.tv/videos/([0-9a-zA-Z]+)", link)
-        if match:
-            return "<iframe class=\"media\" src=\"https://player.twitch.tv/?autoplay=false&video=v{}\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\" height=\"335\" width=\"550\"></iframe>".format(match.group(1))
+        elif match := re.match(r"https?://www\.twitch\.tv/videos/([0-9a-zA-Z]+)", link):
+            # todo: embed not formatted correctly
+            embed = "<iframe class=\"media\" src=\"https://player.twitch.tv/?autoplay=false&video=v{}\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\" height=\"335\" width=\"550\"></iframe>".format(match.group(1))
 
         # streamable
-        match = re.match(r"https?://streamable.com/([a-zA-Z0-9]+)", link)
-        if match:
-            return "<iframe class=\"media\" src=\"https://streamable.com/o/{}\" frameborder=\"0\" scrolling=\"no\" width=\"560\" height=\"315\" allowfullscreen></iframe>".format(match.group(1))
+        elif match := re.match(r"https?://streamable.com/([a-zA-Z0-9]+)", link):
+            embed = "<iframe class=\"media\" src=\"https://streamable.com/o/{}\" frameborder=\"0\" scrolling=\"no\" width=\"560\" height=\"315\" allowfullscreen></iframe>".format(match.group(1))
+
+        else:
+            # gyazo
+            if re.match(r"https?://gyazo.com/([0-9a-fA-Z]+)", link):
+                # todo: fetch api.gyazo.com to obtain the reformatted i.gyazo.com link
+                adjusted_link = link
+
+            # gfycat
+            elif match := re.match(r"https?://gfycat\.com/([a-zA-Z0-9]+)", link):
+                # todo: fetch api.gfycat.com to obtain the reformatted i.gyazo.com link
+                adjusted_link = link
+
+            # unknown link
+            else:
+                adjusted_link = link
+
+            # obtain the type of embed from a request
+            if adjusted_link.endswith(".gifv"):
+                adjusted_link = re.sub(r"\.gifv$", ".mp4", adjusted_link)
+
+            try:
+                response = requests.head(adjusted_link)
+                link_type = response.headers.get('content-type', '') if response.status_code == 200 else ''
+            except requests.exceptions.RequestException:
+                embed = "<a href=\"{}\">{}</a>".format(adjusted_link, adjusted_link)
+            else:
+                if link_type.startswith("image/"):
+                    embed = "<img class=\"media\" src=\"{}\">".format(adjusted_link)
+                elif link_type.startswith("video/"):
+                    embed = "<video class=\"media\" autoplay loop muted controls><source src=\"{}\"></video>".format(adjusted_link)
+                else:
+                    embed = "<a href=\"{}\">{}</a>".format(adjusted_link, adjusted_link)
+
+        return embed
 
     @staticmethod
     def format_mkdocs_md(message):
-        for link in re.findall(EmbedLink.PATTERN, message.content):
-            html_embed = EmbedLink.generate_embed(link)
-
-            if html_embed:
-                message.embeds.append(html_embed)
+        matches = [match for match in re.finditer(EmbedLink.PATTERN, message.content)]
+        for match in reversed(matches):
+            link_formatted = match.group(0).lstrip()
+            message.embeds.append(EmbedLink.generate_embed(link_formatted))
+            link_formatted = "<{}>".format(link_formatted)
+            message.content = message.content[:match.start()] + link_formatted + message.content[match.end():]
 
 
 class LineBreak(MKDocs):

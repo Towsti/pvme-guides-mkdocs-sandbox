@@ -19,9 +19,9 @@ CATEGORY_SEQUENCE = [
 DEFAULT_FORMAT_SEQUENCE = [
     Section,
     LineBreak,
+    EmbedLink,
     Emoji,
     DiscordMarkdownHTML,
-    EmbedLink,
     DiscordWhiteSpace,
     CodeBlock,
     PVMESpreadSheet
