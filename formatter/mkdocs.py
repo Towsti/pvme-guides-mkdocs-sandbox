@@ -70,6 +70,9 @@ def generate_channel_source(channel_txt_file, source_dir, category_name, channel
             message_lines = list()
         elif line.startswith('> ') and 'table of contents' in line.lower():
             break
+        elif category_name == 'getting-started' and channel_name == 'perks' and line == '__**Table of Contents**__':
+            # todo: remove edge-case when the .txt file is updated
+            break
         else:
             message_lines.append(line)
 
@@ -77,7 +80,7 @@ def generate_channel_source(channel_txt_file, source_dir, category_name, channel
         messages.append(MKDocsMessage.init_raw_message("\n".join(message_lines), ''))
 
     # format the channel (format all messages)
-    formatted_channel = ''
+    formatted_channel = '# {}\n'.format(channel_name.replace('-', ' ').capitalize())
     for message in messages:
         message.format_bot_command()
         message.format_content()

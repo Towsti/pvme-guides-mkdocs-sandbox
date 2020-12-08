@@ -57,13 +57,11 @@ class Section(MKDocs):
 
     @staticmethod
     def format_mkdocs_md(message):
-        # todo: remove sections ending with section:
-        # todo: move TOC removal to message builder
         matches = [match for match in re.finditer(Section.PATTERN, message.content)]
 
         for match in reversed(matches):
             section_name = re.sub(r"[*_]*", '', match.group(1))
-            section_name_formatted = "##{}".format(section_name)
+            section_name_formatted = "## {}".format(section_name)
 
             # remove ':' at the end of a section name to keep ry happy
             if section_name_formatted.endswith(':'):
