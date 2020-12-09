@@ -15,6 +15,9 @@ CREDENTIALS_FILE = "{}/credentials.json".format(module_path)
 # set the PVME price spreadsheet link (full link)
 PVME_SPREADSHEET = "https://docs.google.com/spreadsheets/d/1nFepmgXBFh1Juc0Qh5nd1HLk50iiFTt3DHapILozuIM/edit#gid=0"
 
+# base domain used as parent setting for twitch embeds
+BASE_DOMAIN = "towsti.github.io"
+
 
 class Sphinx(ABC):
     @staticmethod
@@ -140,12 +143,12 @@ class EmbedLink(MKDocs):
         # clips.twitch.tv
         elif match := re.match(r"https?://clips\.twitch\.tv/([a-zA-Z]+)", url):
             # todo: embed not formatted correctly
-            embed = "<iframe class=\"media\" src=\"https://clips.twitch.tv/embed?autoplay=false&clip={}\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\" height=\"315\" width=\"560\"></iframe>".format(match.group(1))
+            embed = "<iframe class=\"media\" src=\"https://clips.twitch.tv/embed?autoplay=false&clip={}&parent={}\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\" height=\"315\" width=\"560\"></iframe>".format(match.group(1), BASE_DOMAIN)
 
         # twitch.tv/videos
         elif match := re.match(r"https?://www\.twitch\.tv/videos/([0-9a-zA-Z]+)", url):
             # todo: embed not formatted correctly
-            embed = "<iframe class=\"media\" src=\"https://player.twitch.tv/?autoplay=false&video=v{}\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\" height=\"335\" width=\"550\"></iframe>".format(match.group(1))
+            embed = "<iframe class=\"media\" src=\"https://player.twitch.tv/?autoplay=false&video=v{}&parent={}\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\" height=\"315\" width=\"560\"></iframe>".format(match.group(1), BASE_DOMAIN)
 
         # streamable
         elif match := re.match(r"https?://streamable\.com/([a-zA-Z0-9]+)", url):
@@ -153,7 +156,7 @@ class EmbedLink(MKDocs):
 
         # pastebin
         elif match := re.match(r"https?://pastebin.com/([a-zA-Z0-9]+)", url):
-            embed = "<iframe class=\"media\" src=\"https://pastebin.com/embed_iframe/{}?theme=dark\" style=\"width:500px;height:155px\"></iframe>".format(match.group(1))
+            embed = "<iframe class=\"media\" src=\"https://pastebin.com/embed_iframe/{}?theme=dark\" style=\"width:560px;height:155px\"></iframe>".format(match.group(1))
 
         else:
             # gyazo
@@ -191,6 +194,7 @@ class EmbedLink(MKDocs):
 
     @staticmethod
     def format_mkdocs_md(message):
+        # todo: character at the start of the embed is removed (e.g. '(' in github for contribution quick start)
         matches = [match for match in re.finditer(EmbedLink.PATTERN, message.content)]
         for match in reversed(matches):
             url_formatted = "<{}>".format(match.group(1))
